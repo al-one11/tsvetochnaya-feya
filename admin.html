@@ -26,11 +26,11 @@ async function login(){
  var b=$("loginBtn"),m=$("loginMsg");b.disabled=true;m.textContent="Входим...";
  try{
   var r=await request("/auth/v1/token?grant_type=password","POST",{email:$("email").value.trim(),password:$("password").value});
-  token=r.access_token;localStorage.setItem("bs_access",token);openApp();
+  token=r.access_token;localStorage.setItem("feya_access",token);openApp();
  }catch(e){m.textContent="Ошибка входа: "+e.message}finally{b.disabled=false}
 }
 function openApp(){$("login").hidden=true;$("app").hidden=false;loadProducts();loadOrders()}
-function logout(){localStorage.removeItem("bs_access");location.reload()}
+function logout(){localStorage.removeItem("feya_access");location.reload()}
 async function addProduct(){var m=$("msg"),name=$("name").value.trim(),price=Number($("price").value),oldPrice=Number($("oldPrice").value)||null,category=$("category").value,description=$("description").value.trim()||null,file=$("photo").files[0];if(!name||!price||!file){m.textContent="Укажите название, цену и фото.";return}m.textContent="Добавляем товар...";try{var up=await uploadProductImage(file);await request("/rest/v1/products","POST",{name:name,price:price,old_price:oldPrice,category:category,description:description,image_path:up.path,image_url:up.url,active:true,sort_order:0});$("name").value="";$("price").value="";$("oldPrice").value="";$("description").value="";$("photo").value="";m.textContent="Товар добавлен.";await loadProducts()}catch(e){m.textContent="Ошибка: "+e.message}}
 async function loadProducts(){
  try{products=await request("/rest/v1/products?select=*&order=category.asc,sort_order.asc,created_at.desc");renderProducts()}catch(e){$("list").textContent="Ошибка каталога: "+e.message}
@@ -162,7 +162,7 @@ async function loadOrders(){
  }catch(e){$("orders").innerHTML='<div class="muted">Ошибка заказов: '+escapeHtml(e.message)+'</div>'}
 }
 $("loginBtn").onclick=login;$("logoutBtn").onclick=logout;$("refreshOrders").onclick=loadOrders;$("addBtn").onclick=addProduct;$("toggleOrders").onclick=function(){var s=$("ordersSection"),b=$("toggleOrders"),hidden=s.hidden=!s.hidden;b.textContent=hidden?"Показать":"Свернуть"};
-var saved=localStorage.getItem("bs_access");if(saved){token=saved;openApp()}
+var saved=localStorage.getItem("feya_access");if(saved){token=saved;openApp()}
 })();
 </script><script>
 (function(){
