@@ -1,0 +1,200 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Цветочная Фея — панель владельца</title><style>
+:root{--accent:#ff2f7d;--accent2:#ff6338;--ink:#351326;--muted:#79586a;--line:#f4bfd7}
+body{margin:0;background:#fbf7f4;color:#292322;font-family:Arial,sans-serif}.wrap{max-width:900px;margin:auto;padding:18px}.card,.item{background:#fff;border:1px solid #eadfda;border-radius:16px;padding:16px;margin:12px 0}.row{display:flex;gap:8px}.row>*{flex:1}input,select,textarea,button{box-sizing:border-box;width:100%;padding:11px;margin:5px 0;border-radius:10px;border:1px solid #ddd;font:inherit}.admin-bg{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:-1;background:linear-gradient(135deg,#fff1f7,#fff9ef 48%,#f4edff)}.admin-bg span{position:absolute;border-radius:50%;filter:blur(2px);opacity:.25}.admin-bg span:nth-child(1){width:240px;height:240px;background:#ff8fba;top:-80px;right:-50px}.admin-bg span:nth-child(2){width:180px;height:180px;background:#ffd36e;bottom:12%;left:-70px}.admin-bg span:nth-child(3){width:140px;height:140px;background:#b89cff;top:42%;right:8%}.admin-header{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:20px 22px;background:rgba(255,255,255,.88);border:1px solid #f6c3da;border-radius:24px;box-shadow:0 14px 40px #6e514612;margin-bottom:8px}.brand{font:700 25px Georgia,serif;color:#8b1855;letter-spacing:-.02em}.brand small{display:block;font:700 9px Arial,sans-serif;letter-spacing:.12em;color:var(--muted);margin-top:6px}.brand-flower{width:48px;height:48px;border-radius:16px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-size:27px;box-shadow:0 10px 24px #ff2f7d33}.intro{margin:8px 4px 18px}.wrap{max-width:940px}.card,.item{box-shadow:0 8px 25px #6e51460b}.card h2{font-family:Georgia,serif;color:var(--ink)}button{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;border:0;font-weight:700;cursor:pointer}.save{background:#3b7d4f}.cancel{background:#eee;color:#292322}.danger{background:#a33}.move{width:48%;display:inline-block;background:#75606b}.admin-cats{display:flex;gap:8px;overflow:auto;padding:4px 0 12px;position:sticky;top:0;background:#fff;z-index:2}.admin-cat{width:auto;white-space:nowrap;padding:9px 14px;border-radius:999px;background:#f7efec;color:#5d504c}.admin-cat.active{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff}.product-list{display:grid;gap:10px}.drag-hint{font-size:12px;color:#746b68;margin:0 0 10px}.drag-item{cursor:grab}.drag-item.dragging{opacity:.45}.drag-handle{font-size:20px;float:right;cursor:grab}.move-row{display:flex;gap:6px}.move-row button{margin:5px 0;width:50%}.muted{font-size:13px;color:#746b68}.item img{width:82px;height:82px;object-fit:cover;border-radius:10px;float:left;margin:0 12px 8px 0}.item:after{content:"";display:block;clear:both}.editbox{background:#faf7f5;border:1px solid #eadfda;border-radius:12px;padding:10px;margin-top:10px}.cat{font-size:13px;color:#756b67;font-weight:700}.order{border:1px solid #eadfda;border-radius:12px;padding:12px;margin:10px 0}.orders-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.orders-toggle{width:auto;padding:8px 12px;margin:0;background:#f7efec;color:#5d504c}.order-delete{width:auto!important;padding:6px 9px!important;margin:0!important;background:#fff!important;color:#a33!important;border:1px solid #e5b7c6!important;font-size:12px!important}.status{font-weight:700}.side-menu-btn{position:fixed;left:16px;top:16px;z-index:120;width:46px;height:46px;padding:0;margin:0;border:1px solid #f4bfd7;border-radius:14px;background:rgba(255,255,255,.94);color:#8b1855;font-size:24px;box-shadow:0 8px 25px rgba(80,30,50,.12);cursor:pointer}.side-overlay{position:fixed;inset:0;background:rgba(40,20,30,.28);z-index:130;display:none}.side-overlay.open{display:block}.side-drawer{position:fixed;left:0;top:0;bottom:0;width:min(310px,84vw);background:#fffafc;z-index:140;transform:translateX(-105%);transition:transform .25s ease;box-shadow:18px 0 45px rgba(50,20,35,.16);padding:78px 18px 22px;overflow:auto}.side-drawer.open{transform:translateX(0)}.side-drawer h3{font:700 24px Georgia,serif;color:#8b1855;margin:0 0 18px}.side-link{display:block;width:100%;text-align:left;padding:13px 15px;margin:7px 0;border:1px solid #f2d7e2;border-radius:12px;background:#fff;color:#5d3048;font-weight:700;cursor:pointer}.side-link:hover{background:#fff0f6}.side-close{position:absolute;right:14px;top:14px;width:40px;height:40px;padding:0;margin:0;border:0;background:transparent;font-size:28px;color:#79586a;cursor:pointer}.admin-contacts-modal{position:fixed;inset:0;z-index:180;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(35,15,28,.55);backdrop-filter:blur(5px)}.admin-contacts-modal.open{display:flex}.admin-contacts-backdrop{position:absolute;inset:0}.admin-contacts-card{position:relative;width:min(760px,100%);max-height:90vh;overflow:auto;background:#fff;border:1px solid #f3c4d9;border-radius:28px;box-shadow:0 25px 80px rgba(50,20,35,.28);padding:30px 24px 26px}.admin-contacts-close{position:absolute;right:15px;top:13px;width:42px;height:42px;border:0;border-radius:50%;background:#fff0f6;color:#79586a;font-size:28px;cursor:pointer}.admin-contacts-kicker{font-size:11px;letter-spacing:.14em;font-weight:800;color:#ff2f7d}.admin-contacts-card h2{font:400 38px Georgia,serif;color:#351326;margin:8px 50px 22px 0}.admin-contact-main{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.admin-contact-box{padding:17px;border:1px solid #f0d9e4;border-radius:18px;background:#fff9fc}.admin-contact-box strong{display:block;margin-bottom:7px;color:#351326}.admin-contact-box div,.admin-contact-box a{color:#79586a;font-size:14px;line-height:1.55}.admin-contact-box a{color:#8b1855;font-weight:700;text-decoration:none}.admin-contact-addresses{margin-top:14px;padding:18px;border-radius:20px;background:linear-gradient(135deg,#fff1f7,#fff9ef);border:1px solid #f3d6e2}.admin-contact-addresses h3{font:700 21px Georgia,serif;color:#351326;margin:0 0 12px}.admin-address-row{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:12px 0;border-bottom:1px solid #efdce5}.admin-address-row:last-child{border-bottom:0}.admin-address-row a{white-space:nowrap;color:#8b1855;font-weight:700;text-decoration:none}.admin-contact-note{margin-top:14px;padding:15px 17px;border-radius:17px;background:#f9f1f5;color:#79586a;font-size:13px;line-height:1.55}.admin-contact-actions{display:flex;gap:10px;margin-top:15px}.admin-contact-actions a{display:inline-flex;align-items:center;justify-content:center;padding:11px 16px;border-radius:12px;background:linear-gradient(90deg,#ff2f7d,#ff6338);color:#fff;text-decoration:none;font-weight:700;font-size:13px}@media(max-width:600px){.admin-contact-main{grid-template-columns:1fr}.admin-contacts-card{padding:26px 16px 20px}.admin-contacts-card h2{font-size:32px}.admin-address-row{align-items:flex-start;flex-direction:column;gap:5px}.admin-contact-actions{flex-direction:column}}.order-people{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}.order-person-card{padding:12px 13px;border:1px solid #eadfda;border-radius:14px;background:#fff9fc}.order-person-card.recipient{background:linear-gradient(135deg,#fff1f7,#fff9ef);border-color:#f3c8dc}.order-person-card strong{display:block;color:#8b1855;margin-bottom:6px}.order-person-card .person-name{font-weight:700}.order-person-card .person-phone{margin-top:3px}.order-person-card a{color:#8b1855;text-decoration:none}@media(max-width:600px){.order-people{grid-template-columns:1fr}}.order-extra-grid{display:grid;gap:8px;margin:10px 0}.order-extra{padding:11px 13px;border:1px solid #eadfda;border-radius:12px;background:#fff}.order-extra strong{display:block;margin-bottom:5px;color:#8b1855}.order-extra-text{white-space:pre-wrap;overflow-wrap:anywhere;color:#4b3b42;line-height:1.45}</style></head><body><button class="side-menu-btn" id="sideMenuBtn" type="button" aria-label="Открыть меню">☰</button><div class="side-overlay" id="sideOverlay"></div><aside class="side-drawer" id="sideDrawer"><button class="side-close" id="sideClose" type="button">×</button><h3>Навигация</h3><button class="side-link" data-side-target="ordersSection">📦 Заказы</button><button class="side-link" data-side-target="addProductSection">➕ Добавить товар</button><div style="margin-top:18px;font-size:13px;color:#79586a;font-weight:700">КАТАЛОГ</div><button class="side-link" data-side-category="Акции">🏷️ Акции</button><button class="side-link" data-side-category="Букеты">💐 Букеты</button><button class="side-link" data-side-category="Монобукеты">🌹 Монобукеты</button><button class="side-link" data-side-category="Композиции">🌸 Композиции</button><button class="side-link" data-side-category="Шары">🎈 Шары</button><button class="side-link" data-side-category="Сопутствующие товары">🎁 Сопутствующие товары</button></aside>
+<div class="admin-bg"><span></span><span></span><span></span></div>
+<main class="wrap">
+<header class="admin-header">
+  <div class="brand"><div>ЦВЕТОЧНАЯ ФЕЯ</div><small>ПАНЕЛЬ ВЛАДЕЛЬЦА • ЦВЕТЫ • БУКЕТЫ • ПОДАРКИ</small></div>
+  <div class="brand-flower">✿</div>
+</header>
+<p class="muted intro">Управляйте каталогом и заказами в одном месте.</p><section id="login" class="card"><h2>Вход</h2><input id="email" type="email" placeholder="Email владельца" value=""><input id="password" type="password" autocomplete="current-password" placeholder="Пароль"><button id="loginBtn" type="button">Войти</button><p id="loginMsg" class="muted"></p></section><section id="app" class="card" hidden><button id="logoutBtn">Выйти</button><div class="orders-head"><h2 style="margin:0">Заказы</h2><button id="toggleOrders" class="orders-toggle" type="button">Свернуть</button></div><div id="ordersSection"><button id="refreshOrders">🔄 Обновить заказы</button><div id="orders">Загрузка...</div></div><div id="addProductSection"></div><h2>Добавить товар</h2><input id="name" placeholder="Название товара"><div class="row"><input id="price" type="number" min="0" placeholder="Новая цена, ₽"><input id="oldPrice" type="number" min="0" placeholder="Старая цена, ₽"></div><select id="category"><option>Акции</option><option>Букеты</option><option>Монобукеты</option><option>Композиции</option><option>Шары</option><option>Сопутствующие товары</option></select><textarea id="description" rows="4" placeholder="Состав / описание товара. Например: розы 11 шт., эвкалипт, упаковка..."></textarea><input id="photo" type="file" accept="image/*"><button id="addBtn">Добавить товар</button><p id="msg" class="muted"></p><h2>Каталог</h2><div id="adminCats" class="admin-cats"></div><p class="drag-hint">Выберите раздел. На компьютере товары можно перетаскивать, а на телефоне удобно менять порядок кнопками ⬆️⬇️.</p><div id="list" class="product-list">Загрузка...</div></section><div class="admin-contacts-modal" id="adminContactsModal" aria-hidden="true"><div class="admin-contacts-backdrop" data-close-admin-contacts></div><div class="admin-contacts-card" role="dialog" aria-modal="true" aria-labelledby="adminContactsTitle"><button class="admin-contacts-close" type="button" data-close-admin-contacts>×</button><div class="admin-contacts-kicker">ЦВЕТОЧНАЯ ФЕЯ • ЕЛАБУГА</div><h2 id="adminContactsTitle">Контакты</h2><div class="admin-contact-main"><div class="admin-contact-box"><strong>📍 Адрес</strong><div>Елабуга</div></div><div class="admin-contact-box"><strong>🕐 Режим работы</strong><div>Приём заказов онлайн — круглосуточно</div></div><div class="admin-contact-box"><strong>📞 Телефоны</strong><a href="">+7 (телефон уточняется)</a><br><a href="">+7 (телефон уточняется)</a></div><div class="admin-contact-box"><strong>💬 Связь</strong><div>Поможем подобрать букет, шары или композицию под повод и бюджет.</div></div></div><div class="admin-contact-addresses"><h3>Адреса магазинов</h3><div class="admin-address-row"><span>ул. Ленина, 31<br><small>Ежедневно, 10:00–21:00</small></span><a href="https://yandex.ru/maps/?text=Елабуга%2C%20ул.%20Ленина%2C%2031" target="_blank" rel="noopener">Открыть карту →</a></div><div class="admin-address-row"><span>Социалистическая ул., 53<br><small>Ежедневно, 10:00–22:00</small></span><a href="https://yandex.ru/maps/?text=Елабуга%2C%20Социалистическая%20ул.%2C%2053" target="_blank" rel="noopener">Открыть карту →</a></div></div><div class="admin-contact-note">📦 Заказы можно оформить через сайт в любое время. Для срочного заказа или помощи с выбором можно позвонить в магазин.</div><div class="admin-contact-actions"><a href="https://wa.me/79177596919" target="_blank" rel="noopener">💬 WhatsApp</a><a href="https://vk.com/search?c%5Bsection%5D=communities&c%5Bq%5D=%D0%A6%D0%B2%D0%B5%D1%82%D1%8B%20%D0%91%D1%83%D0%BA%D0%B5%D1%82%20%D0%A8%D0%B0%D1%80%D0%BE%D0%B2%20%D0%9D%D0%B5%D1%84%D1%82%D0%B5%D0%BA%D0%B0%D0%BC%D1%81%D0%BA" target="_blank" rel="noopener">🔵 ВКонтакте</a></div></div></div></main><script>
+(function(){
+var URL="https://axvoftkcmdvxvzuuofvz.supabase.co";
+var KEY="sb_publishable_BNt6H3FPBUKGed4h8pax9w_TVsbgC2m";
+var token=null, products=[],selectedCategory="Букеты";
+function $(id){return document.getElementById(id)}
+function headers(){var h={"apikey":KEY};if(token)h.Authorization="Bearer "+token;return h}
+async function request(path,method,body){
+ var h=headers(); if(body!==undefined){h["Content-Type"]="application/json";h.Prefer="return=minimal"}
+ var r=await fetch(URL+path,{method:method||"GET",headers:h,body:body===undefined?undefined:JSON.stringify(body)});
+ var text=await r.text(),data;try{data=JSON.parse(text)}catch(e){data=text}
+ if(!r.ok)throw new Error((data&&data.message)||"HTTP "+r.status);
+ return data;
+}
+function escapeHtml(v){return String(v==null?"":v).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}
+async function login(){
+ var b=$("loginBtn"),m=$("loginMsg");b.disabled=true;m.textContent="Входим...";
+ try{
+  var r=await request("/auth/v1/token?grant_type=password","POST",{email:$("email").value.trim(),password:$("password").value});
+  token=r.access_token;localStorage.setItem("bs_access",token);openApp();
+ }catch(e){m.textContent="Ошибка входа: "+e.message}finally{b.disabled=false}
+}
+function openApp(){$("login").hidden=true;$("app").hidden=false;loadProducts();loadOrders()}
+function logout(){localStorage.removeItem("bs_access");location.reload()}
+async function addProduct(){var m=$("msg"),name=$("name").value.trim(),price=Number($("price").value),oldPrice=Number($("oldPrice").value)||null,category=$("category").value,description=$("description").value.trim()||null,file=$("photo").files[0];if(!name||!price||!file){m.textContent="Укажите название, цену и фото.";return}m.textContent="Добавляем товар...";try{var up=await uploadProductImage(file);await request("/rest/v1/products","POST",{name:name,price:price,old_price:oldPrice,category:category,description:description,image_path:up.path,image_url:up.url,active:true,sort_order:0});$("name").value="";$("price").value="";$("oldPrice").value="";$("description").value="";$("photo").value="";m.textContent="Товар добавлен.";await loadProducts()}catch(e){m.textContent="Ошибка: "+e.message}}
+async function loadProducts(){
+ try{products=await request("/rest/v1/products?select=*&order=category.asc,sort_order.asc,created_at.desc");renderProducts()}catch(e){$("list").textContent="Ошибка каталога: "+e.message}
+}
+function setupPromoPriceFields(){var cat=$("category"),old=$("oldPrice");if(!cat||!old)return;function sync(){old.style.display=cat.value==="Акции"?"block":"none";if(cat.value!=="Акции")old.value=""}cat.addEventListener("change",sync);sync()}setupPromoPriceFields();
+function renderProducts(){
+ renderAdminCats();
+ var visible=products.filter(function(p){return String(p.category||"Букеты")===selectedCategory});
+ if(!visible.length){$("list").textContent="В этом разделе пока нет товаров";return}
+ var out="";
+ for(var i=0;i<visible.length;i++){
+  var p=visible[i];
+  out+='<div class="item drag-item" draggable="true" data-product-id="'+p.id+'"><span class="drag-handle">☷</span><img src="'+escapeHtml(p.image_url||"")+'"><b>'+escapeHtml(p.name)+'</b><br>'+escapeHtml(p.category||"Букеты")+'<br>'+Number(p.price).toLocaleString("ru-RU")+' ₽<div class="move-row"><button data-up="'+p.id+'">⬆️ Выше</button><button data-down="'+p.id+'">⬇️ Ниже</button></div><button data-edit="'+p.id+'">✏️ Редактировать</button> <button class="danger" data-delete="'+p.id+'">🗑 Удалить</button></div>';
+ }
+ $("list").innerHTML=out;
+ document.querySelectorAll("[data-delete]").forEach(function(b){b.onclick=function(){deleteProduct(b.getAttribute("data-delete"))}});
+ document.querySelectorAll("[data-edit]").forEach(function(b){b.onclick=function(){editProduct(b.getAttribute("data-edit"))}});
+ document.querySelectorAll("[data-up]").forEach(function(b){b.onclick=function(){moveProduct(b.getAttribute("data-up"),-1)}});
+ document.querySelectorAll("[data-down]").forEach(function(b){b.onclick=function(){moveProduct(b.getAttribute("data-down"),1)}});
+ var dragged=null;
+ document.querySelectorAll(".drag-item").forEach(function(el){
+  el.addEventListener("dragstart",function(){dragged=el;el.classList.add("dragging")});
+  el.addEventListener("dragend",function(){el.classList.remove("dragging");dragged=null});
+  el.addEventListener("dragover",function(e){e.preventDefault()});
+  el.addEventListener("drop",async function(e){
+   e.preventDefault();if(!dragged||dragged===el)return;
+   var ids=Array.from(document.querySelectorAll(".drag-item")).map(function(x){return x.getAttribute("data-product-id")});
+   var from=ids.indexOf(dragged.getAttribute("data-product-id")),to=ids.indexOf(el.getAttribute("data-product-id"));
+   if(from<0||to<0)return;
+   ids.splice(from,1);ids.splice(to,0,dragged.getAttribute("data-product-id"));
+   try{await saveCategoryOrder(ids)}catch(err){alert("Не удалось сохранить порядок: "+err.message)}
+  });
+ });
+}
+function renderAdminCats(){
+ var cats=["Акции","Букеты","Монобукеты","Композиции","Шары","Сопутствующие товары"];
+ $("adminCats").innerHTML=cats.map(function(c){return '<button type="button" class="admin-cat '+(c===selectedCategory?"active":"")+'" data-admin-cat="'+escapeHtml(c)+'">'+escapeHtml(c)+'</button>'}).join("");
+ document.querySelectorAll("[data-admin-cat]").forEach(function(b){b.onclick=function(){selectedCategory=b.getAttribute("data-admin-cat");renderProducts()}});
+}
+async function saveCategoryOrder(ids){
+ for(var i=0;i<ids.length;i++){
+  await request("/rest/v1/products?id=eq."+encodeURIComponent(ids[i]),"PATCH",{sort_order:i});
+ }
+ await loadProducts();
+}
+async function moveProduct(id,dir){
+ var index=products.findIndex(function(x){return String(x.id)===String(id)});
+ if(index<0)return;
+ var p=products[index], targetIndex=index+dir;
+ while(targetIndex>=0 && targetIndex<products.length && String(products[targetIndex].category||"")!==String(p.category||"")) targetIndex+=dir;
+ if(targetIndex<0 || targetIndex>=products.length || String(products[targetIndex].category||"")!==String(p.category||""))return;
+ var target=products[targetIndex];
+ var a=Number(p.sort_order||0), b=Number(target.sort_order||0);
+ try{
+  var patch1={sort_order:b}, patch2={sort_order:a};
+  await request("/rest/v1/products?id=eq."+encodeURIComponent(p.id),"PATCH",patch1);
+  await request("/rest/v1/products?id=eq."+encodeURIComponent(target.id),"PATCH",patch2);
+  await loadProducts();
+ }catch(e){alert("Не удалось поменять порядок: "+e.message)}
+}
+async function uploadProductImage(file){var clean=file.name.replace(/[^a-zA-Z0-9._-]/g,"_"),path=Date.now()+"-"+Math.random().toString(36).slice(2)+"-"+clean;var h={"apikey":KEY,"Authorization":"Bearer "+token,"x-upsert":"false","Content-Type":file.type||"image/jpeg"};var r=await fetch(URL+"/storage/v1/object/product-images/"+encodeURIComponent(path),{method:"POST",headers:h,body:file});var t=await r.text();if(!r.ok){var d;try{d=JSON.parse(t)}catch(e){}throw new Error((d&&d.message)||t||("HTTP "+r.status))}return {path:path,url:URL+"/storage/v1/object/public/product-images/"+path}}
+async function editProduct(id){
+ var p=products.find(function(x){return String(x.id)===String(id)});if(!p)return;
+ var box=document.createElement("div");box.className="editbox";box.innerHTML='<input id="en_'+id+'" value="'+escapeHtml(p.name)+'" placeholder="Название"><div class="row"><input id="ep_'+id+'" type="number" min="0" value="'+Number(p.price||0)+'" placeholder="Цена"><input id="eo_'+id+'" type="number" min="0" value="'+Number(p.old_price||0)+'" placeholder="Старая цена"></div><select id="ec_'+id+'"><option>Акции</option><option>Букеты</option><option>Монобукеты</option><option>Композиции</option><option>Шары</option><option>Сопутствующие товары</option></select><textarea id="ed_'+id+'" rows="4" placeholder="Состав / описание">'+escapeHtml(p.description||"")+'</textarea><label class="muted">Новое фото (необязательно)</label><input id="ef_'+id+'" type="file" accept="image/*"><button class="save" id="es_'+id+'">Сохранить</button><button class="cancel" id="ex_'+id+'">Отмена</button><p id="em_'+id+'" class="muted"></p>';
+ var item=document.querySelector('[data-edit="'+id+'"]').parentElement;item.appendChild(box);$("ec_"+id).value=p.category||"Букеты";function syncEditPromo(){var cat=$("ec_"+id),old=$("eo_"+id);old.style.display=cat.value==="Акции"?"block":"none";if(cat.value==="Акции"&&!Number(old.value))old.value=Number($("ep_"+id).value)||"";if(cat.value!=="Акции")old.value=""}$("ec_"+id).onchange=syncEditPromo;syncEditPromo();$("es_"+id).onclick=async function(){var m=$("em_"+id);m.textContent="Сохраняем...";try{var patch={name:$("en_"+id).value.trim(),price:Number($("ep_"+id).value),old_price:Number($("eo_"+id).value)||null,category:$("ec_"+id).value,description:$("ed_"+id).value.trim()||null};var file=$("ef_"+id).files[0];if(file){m.textContent="Загружаю новое фото...";var up=await uploadProductImage(file);patch.image_path=up.path;patch.image_url=up.url}await request("/rest/v1/products?id=eq."+encodeURIComponent(id),"PATCH",patch);await loadProducts()}catch(e){m.textContent="Ошибка: "+e.message}};$("ex_"+id).onclick=function(){box.remove()};
+}
+async function deleteProduct(id){
+ var p=products.find(function(x){return String(x.id)===String(id)});if(!p||!confirm("Удалить товар?"))return;
+ try{await request("/rest/v1/products?id=eq."+encodeURIComponent(id),"DELETE");loadProducts()}catch(e){alert(e.message)}
+}
+function renderOrderComment(raw){
+ if(!raw)return "";
+ var lines=String(raw).split(/\r?\n/).map(function(x){return x.trim()}).filter(Boolean);
+ var photo="",card="",cardText="",note="",other=[];
+ lines.forEach(function(s){
+  var m;
+  if((m=s.match(/^Фото(?: букета)?\s*:\s*(.*)$/i))) photo=m[1];
+  else if((m=s.match(/^Открытка\s*:\s*(.*)$/i))){
+   var v=m[1].trim();
+   var cm=v.match(/^(нужна|нужна\s*—)\s*(.*)$/i);
+   if(cm){
+    card=cm[1].replace(/\s*—\s*$/,"");
+    if(cm[2]) cardText=cm[2].replace(/^—\s*/,"").trim().replace(/^«|»$/g,"");
+   }else card=v;
+  } else if((m=s.match(/^Текст(?: на)? открытки\s*:\s*(.*)$/i))) cardText=m[1];
+  else if((m=s.match(/^Комментарий(?: курьеру)?\s*:\s*(.*)$/i))) note=m[1];
+  else if(/^Получение\s*:/i.test(s)){}
+  else other.push(s);
+ });
+ function box(icon,title,value){
+  return '<div class="order-extra"><strong>'+icon+' '+title+'</strong>'+(value?'<div class="order-extra-text">'+escapeHtml(value)+'</div>':'')+'</div>';
+ }
+ function needIcon(value){
+  return /^(нужна|нужно|да|yes|есть)/i.test(String(value||""))?'✅':'❌';
+ }
+ var out="";
+ out+=box(needIcon(photo)+" "+ "Фото букета", "", photo.replace(/^(нужно|нужна|да|yes|есть)\s*/i,""));
+ out+=box(needIcon(card)+" "+ "Открытка", "", "");
+ if(cardText) out+=box("✍️","Текст открытки",cardText);
+ if(note) out+=box("💬","Комментарий",note);
+ if(other.length)out+=box("📝","Дополнительная информация",other.join("\n"));
+ return out?'<div class="order-extra-grid">'+out+'</div>':"";
+}
+async function loadOrders(){
+ try{
+  var r=await request("/rest/v1/orders?select=*&order=created_at.desc");
+  if(!r.length){$("orders").innerHTML='<div class="muted">История заказов пока пустая.</div>';return}
+  var items=await request("/rest/v1/order_items?select=order_id,product_name,price,quantity&order=created_at.asc");
+  var byOrder={};items.forEach(function(x){(byOrder[x.order_id]||(byOrder[x.order_id]=[])).push(x)});
+  var statusLabel={new:"Новый",confirmed:"Подтверждён",completed:"Выполнен",cancelled:"Отменён"};
+  var out='<div class="muted" style="margin:4px 0 12px">Всего заказов: <b>'+r.length+'</b></div>';
+  r.forEach(function(o){
+   var list=byOrder[o.id]||[];
+   var created=new Date(o.created_at).toLocaleString("ru-RU",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"});
+   var number=String(o.id).slice(0,8).toUpperCase();
+   var productsHtml=list.length?'<ul style="margin:8px 0 10px;padding-left:20px">'+list.map(function(x){return '<li>'+escapeHtml(x.product_name)+' × '+Number(x.quantity||0)+' — '+Number(x.price||0).toLocaleString("ru-RU")+' ₽</li>'}).join("")+'</ul>':'<div class="muted">Состав заказа не найден</div>';
+   var legacy=!o.recipient_name&&!o.recipient_phone;var buyerName=escapeHtml(legacy?"Не указан (старый заказ)":(o.customer_name||"Не указан")),buyerPhone=escapeHtml(legacy?"—":(o.customer_phone||"Не указан"));
+   var recipientName=escapeHtml(legacy?(o.customer_name||"Не указан"):(o.recipient_name||"Не указан")),recipientPhone=escapeHtml(legacy?(o.customer_phone||"Не указан"):(o.recipient_phone||"Не указан"));
+   var people='<div class="order-people"><div class="order-person-card"><strong>👤 Заказчик</strong><div class="person-name">'+buyerName+'</div><div class="person-phone">'+(o.customer_phone?'<a href="tel:'+buyerPhone+'">'+buyerPhone+'</a>':buyerPhone)+'</div><div class="muted" style="margin-top:4px">Оформил заказ на сайте</div></div><div class="order-person-card recipient"><strong>🎁 Получатель</strong><div class="person-name">'+recipientName+'</div><div class="person-phone">'+(o.recipient_phone?'<a href="tel:'+recipientPhone+'">'+recipientPhone+'</a>':recipientPhone)+'</div><div class="muted" style="margin-top:4px">Кому передать заказ</div></div></div>';
+   var address=o.delivery_address?'<div><b>Получение / адрес:</b> '+escapeHtml(o.delivery_address)+'</div>':'';
+   var comment=renderOrderComment(o.comment);
+   var bonus=Number(o.bonus_spent||0);
+   out+='<div class="order"><div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start"><div><b>Заказ #'+number+'</b><div class="muted">'+created+'</div></div><div style="display:flex;align-items:center;gap:8px"><b>'+Number(o.total||0).toLocaleString("ru-RU")+' ₽</b><button type="button" class="order-delete" data-order-delete="'+escapeHtml(o.id)+'">🗑</button></div></div><hr style="border:0;border-top:1px solid #eadfda;margin:10px 0">'+people+address+comment+(bonus?'<div class="muted" style="margin-top:6px">Бонусами списано: '+bonus.toLocaleString("ru-RU")+' ₽</div>':'')+productsHtml+'<div style="display:flex;gap:6px;flex-wrap:wrap"><select data-status="'+escapeHtml(o.id)+'" style="width:auto;min-width:170px;margin:5px 0"><option value="new">Новый</option><option value="confirmed">Подтверждён</option><option value="completed">Выполнен</option><option value="cancelled">Отменён</option></select><button type="button" data-status-save="'+escapeHtml(o.id)+'" style="width:auto">Сохранить статус</button></div><div class="muted">Статус: '+escapeHtml(statusLabel[o.status]||o.status||"Не указан")+'</div></div>';
+  });
+  $("orders").innerHTML=out;
+  r.forEach(function(o){var s=document.querySelector('[data-status="'+o.id+'"]');if(s)s.value=o.status||"new"});
+  document.querySelectorAll("[data-order-delete]").forEach(function(b){b.onclick=async function(){var id=b.getAttribute("data-order-delete");if(!confirm("Удалить этот заказ из истории?"))return;b.disabled=true;try{await request("/rest/v1/order_items?order_id=eq."+encodeURIComponent(id),"DELETE");await request("/rest/v1/orders?id=eq."+encodeURIComponent(id),"DELETE");await loadOrders()}catch(e){alert("Не удалось удалить заказ: "+e.message)}finally{b.disabled=false}}});
+  document.querySelectorAll("[data-status-save]").forEach(function(b){b.onclick=async function(){var id=b.getAttribute("data-status-save"),s=document.querySelector('[data-status="'+id+'"]');b.disabled=true;try{await request("/rest/v1/orders?id=eq."+encodeURIComponent(id),"PATCH",{status:s.value});await loadOrders()}catch(e){alert("Не удалось изменить статус: "+e.message)}finally{b.disabled=false}}});
+ }catch(e){$("orders").innerHTML='<div class="muted">Ошибка заказов: '+escapeHtml(e.message)+'</div>'}
+}
+$("loginBtn").onclick=login;$("logoutBtn").onclick=logout;$("refreshOrders").onclick=loadOrders;$("addBtn").onclick=addProduct;$("toggleOrders").onclick=function(){var s=$("ordersSection"),b=$("toggleOrders"),hidden=s.hidden=!s.hidden;b.textContent=hidden?"Показать":"Свернуть"};
+var saved=localStorage.getItem("bs_access");if(saved){token=saved;openApp()}
+})();
+</script><script>
+(function(){
+var m=document.getElementById("adminContactsModal"),o=document.getElementById("openAdminContacts");
+if(o&&m){
+ o.onclick=function(){m.classList.add("open");m.setAttribute("aria-hidden","false")};
+ m.querySelectorAll("[data-close-admin-contacts]").forEach(function(x){x.onclick=function(){m.classList.remove("open");m.setAttribute("aria-hidden","true")}});
+ document.addEventListener("keydown",function(e){if(e.key==="Escape"){m.classList.remove("open");m.setAttribute("aria-hidden","true")}});
+}
+})();
+</script><script>
+(function(){
+ var btn=document.getElementById("sideMenuBtn"),drawer=document.getElementById("sideDrawer"),overlay=document.getElementById("sideOverlay"),close=document.getElementById("sideClose");
+ if(!btn||!drawer||!overlay)return;
+ function open(){drawer.classList.add("open");overlay.classList.add("open");}
+ function shut(){drawer.classList.remove("open");overlay.classList.remove("open");}
+ btn.onclick=open;close.onclick=shut;overlay.onclick=shut;
+ document.addEventListener("keydown",function(e){if(e.key==="Escape")shut()});
+ document.querySelectorAll("[data-side-target]").forEach(function(b){
+  b.onclick=function(){
+   var el=document.getElementById(b.getAttribute("data-side-target"));
+   shut();
+   if(el)el.scrollIntoView({behavior:"smooth",block:"start"});
+  };
+ });
+ document.querySelectorAll("[data-side-category]").forEach(function(b){
+  b.onclick=function(){
+   var cat=b.getAttribute("data-side-category");
+   var target=document.querySelector('[data-admin-cat="'+cat.replace(/"/g,'\\\"')+'"]');
+   shut();
+   if(target){target.click();setTimeout(function(){document.getElementById("adminCats").scrollIntoView({behavior:"smooth",block:"start"});},50);}
+  };
+ });
+})();
+</script></body></html>
