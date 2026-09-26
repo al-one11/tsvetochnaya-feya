@@ -150,6 +150,41 @@ function closeClientMenu(){const d=document.getElementById("clientDrawer"),o=doc
 })();document.querySelectorAll('[data-close-desc]').forEach(x=>x.onclick=closeDescription);document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDescription()});document.getElementById('openCart').onclick=()=>{drawer.classList.add('open');renderCart()};document.getElementById('closeCart').onclick=()=>drawer.classList.remove('open');drawer.addEventListener('click',e=>{if(e.target===drawer)drawer.classList.remove('open')});loadCatalog();
 (function(){const box=document.getElementById('heroCarousel');if(!box)return;const slides=[...box.querySelectorAll('.hero-slide')],dots=[...box.querySelectorAll('.hero-dot')];let current=0,timer;function go(i){current=(i+slides.length)%slides.length;slides.forEach((s,k)=>s.classList.toggle('active',k===current));dots.forEach((d,k)=>d.classList.toggle('active',k===current))}function restart(){clearInterval(timer);timer=setInterval(()=>go(current+1),5000)}dots.forEach((d,i)=>d.addEventListener('click',()=>{go(i);restart()}));restart()})();
 db.auth.onAuthStateChange((event)=>{if(event==='SIGNED_IN'||event==='SIGNED_OUT'||event==='TOKEN_REFRESHED')loadCatalog()});window.addEventListener('pageshow',()=>loadCatalog());
+(function(){
+  var drawer=document.getElementById('clientDrawer');
+  if(!drawer)return;
+  drawer.addEventListener('click',function(e){
+    var promo=e.target.closest('#clientPromoLink');
+    var toggle=e.target.closest('#clientCatalogToggle');
+    var cat=e.target.closest('[data-menu-cat]');
+    if(promo){
+      e.preventDefault();
+      selected='Акции';
+      renderCats();
+      render();
+      closeClientMenu();
+      document.getElementById('catalog').scrollIntoView({behavior:'smooth',block:'start'});
+      return;
+    }
+    if(toggle){
+      e.preventDefault();
+      var sub=document.getElementById('clientSubcatalog');
+      if(!sub)return;
+      var open=!sub.classList.contains('open');
+      sub.classList.toggle('open',open);
+      toggle.setAttribute('aria-expanded',open?'true':'false');
+      return;
+    }
+    if(cat){
+      e.preventDefault();
+      selected=cat.getAttribute('data-menu-cat');
+      renderCats();
+      render();
+      closeClientMenu();
+      document.getElementById('catalog').scrollIntoView({behavior:'smooth',block:'start'});
+    }
+  });
+})();
 </script>
 </div></body>
 </html>
