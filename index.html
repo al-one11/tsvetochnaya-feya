@@ -31,6 +31,27 @@ section{padding:48px 0}.head{display:flex;align-items:end;justify-content:space-
 <!-- force deploy 2026-09-21 --></head>
 <body><div class="page-scroll-shell"><div class="client-overlay" id="clientOverlay"></div><aside class="client-drawer" id="clientDrawer"><img class="client-shop-avatar" src="https://al-one11.github.io/tsvetochnaya-feya/30f15042-c2ec-45da-b2e4-f8c727dba852.jpeg" alt="Цветы" title="Цветы"><button class="client-close" id="clientClose" type="button">×</button><button class="client-cat-link client-promo-link" id="clientPromoLink" type="button">🏷️ Акции</button><button class="client-catalog-toggle" id="clientCatalogToggle" type="button" aria-expanded="false">🛍️ Каталог <span class="client-catalog-arrow">⌄</span></button><div class="client-subcatalog" id="clientSubcatalog"><button class="client-cat-link" data-menu-cat="Букеты">💐 Букеты</button><button class="client-cat-link" data-menu-cat="Монобукеты">🌹 Монобукеты</button><button class="client-cat-link" data-menu-cat="Композиции">🌸 Композиции</button><button class="client-cat-link" data-menu-cat="Шары">🎈 Шары</button><button class="client-cat-link" data-menu-cat="Сопутствующие товары">🎁 Сопутствующие товары</button></div><a class="client-cat-link client-delivery-link" href="delivery.html">🚚 Доставка <span>(подробные условия)</span></a><a class="client-cat-link client-delivery-link client-care-link" href="care.html"><span class="client-care-main">🌷 <span class="client-care-title">Уход за цветами</span></span><span>(как сохранить свежесть)</span></a><a class="client-cat-link client-delivery-link client-about-link" href="about.html"><span>ℹ️ О нас</span><span>(дарим эмоции и свежесть)</span></a><button class="client-cat-link client-contacts-btn" id="openContacts" type="button">📞 Контакты <span>(адреса, телефоны, режим работы)</span></button></aside>
 <header class="site-header"><div class="site-nav"><button class="client-menu-btn" id="clientMenuBtn" type="button" aria-label="Открыть меню" onclick="openClientMenu();return false;">☰</button><div class="brand">ЦВЕТОЧНАЯ ФЕЯ<small>ЦВЕТЫ • БУКЕТЫ • ПОДАРКИ</small></div><a class="btn light" href="account.html">Личный кабинет</a><button class="btn dark cart-btn" id="openCart" aria-label="Корзина" title="Корзина"><span class="cart-icon" aria-hidden="true">🛒</span><span class="cart-count" id="cartCount">0</span></button></div></header>
+<script>
+(function(){
+  var btn=document.getElementById('clientMenuBtn');
+  var drawer=document.getElementById('clientDrawer');
+  var overlay=document.getElementById('clientOverlay');
+  if(btn && drawer && overlay){
+    btn.addEventListener('click',function(e){
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      drawer.classList.add('open');
+      overlay.classList.add('open');
+      document.body.style.overflow='hidden';
+    });
+    overlay.addEventListener('click',function(){
+      drawer.classList.remove('open');
+      overlay.classList.remove('open');
+      document.body.style.overflow='';
+    });
+  }
+})();
+</script>
 <main><section class="hero"><div class="wrap hero-grid"><div class="hero-copy"><span class="eyebrow">ЕЛАБУГА • ЦВЕТЫ И ШАРЫ</span><div class="hero-photo-wrap"><img class="hero-photo" src="IMG_1371.jpeg?v=2" alt="Пусть этот день станет особенным"></div><p>Букеты, цветы, воздушные шары и подарочные композиции. Выберите подарок, добавьте его в корзину и оформите заказ прямо на сайте.</p><div class="actions"><a class="btn dark" href="#catalog">Смотреть каталог</a></div></div><div class="hero-art hero-carousel" id="heroCarousel"><div class="hero-slide active"><div class="art-note"><div class="promo-icon">🚚</div><b>Доставка</b><span>Доставим цветы, шары и подарки к нужному времени. Оформите заказ на сайте — мы свяжемся с вами и уточним детали.</span><a class="btn dark promo-btn" href="#delivery">Условия доставки</a></div></div><div class="hero-dots"><button type="button" class="hero-dot active" data-slide="0" aria-label="Слайд 1"></button></div></div></div></section>
 <section class="delivery-info" id="delivery">
   <div class="wrap">
