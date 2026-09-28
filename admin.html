@@ -79,24 +79,24 @@ async function saveCategoryOrder(ids){
  await loadProducts();
 }
 async function moveProduct(id,dir){
- var index=products.findIndex(function(x){return String(x.id)===String(id)});
+ var visible=products.filter(function(x){return String(x.category||"Букеты")===selectedCategory});
+ var index=visible.findIndex(function(x){return String(x.id)===String(id)});
  if(index<0)return;
- var p=products[index], targetIndex=index+dir;
- while(targetIndex>=0 && targetIndex<products.length && String(products[targetIndex].category||"")!==String(p.category||"")) targetIndex+=dir;
- if(targetIndex<0 || targetIndex>=products.length || String(products[targetIndex].category||"")!==String(p.category||""))return;
- var target=products[targetIndex];
- var a=Number(p.sort_order||0), b=Number(target.sort_order||0);
+ var targetIndex=index+dir;
+ if(targetIndex<0||targetIndex>=visible.length)return;
+ var p=visible[index],target=visible[targetIndex];
+ var a=Number(p.sort_order||0),b=Number(target.sort_order||0);
  try{
-  var patch1={sort_order:b}, patch2={sort_order:a};
+  var patch1={sort_order:b},patch2={sort_order:a};
   await request("/rest/v1/products?id=eq."+encodeURIComponent(p.id),"PATCH",patch1);
   await request("/rest/v1/products?id=eq."+encodeURIComponent(target.id),"PATCH",patch2);
   await loadProducts();
- }catch(e){alert("Не удалось поменять порядок: "+e.message)}
+ }catch(e){alert("Не удалось изменить порядок: "+e.message)}
 }
 async function uploadProductImage(file){var clean=file.name.replace(/[^a-zA-Z0-9._-]/g,"_"),path=Date.now()+"-"+Math.random().toString(36).slice(2)+"-"+clean;var h={"apikey":KEY,"Authorization":"Bearer "+token,"x-upsert":"false","Content-Type":file.type||"image/jpeg"};var r=await fetch(URL+"/storage/v1/object/product-images/"+encodeURIComponent(path),{method:"POST",headers:h,body:file});var t=await r.text();if(!r.ok){var d;try{d=JSON.parse(t)}catch(e){}throw new Error((d&&d.message)||t||("HTTP "+r.status))}return {path:path,url:URL+"/storage/v1/object/public/product-images/"+path}}
 async function editProduct(id){
  var p=products.find(function(x){return String(x.id)===String(id)});if(!p)return;
- var box=document.createElement("div");box.className="editbox";box.innerHTML='<input id="en_'+id+'" value="'+escapeHtml(p.name)+'" placeholder="Название"><div class="row"><input id="ep_'+id+'" type="number" min="0" value="'+Number(p.price||0)+'" placeholder="Цена"><input id="eo_'+id+'" type="number" min="0" value="'+Number(p.old_price||0)+'" placeholder="Старая цена"></div><select id="ec_'+id+'"><option>Акции</option><option>Букеты</option><option>Сумочки</option><option>Корзины</option><option>Пакеты</option><option>Шары</option><option>Свадебные аксессуары</option><option>Букеты из продуктов питания</option></select><textarea id="ed_'+id+'" rows="4" placeholder="Состав / описание">'+escapeHtml(p.description||"")+'</textarea><label class="muted">Новое фото (необязательно)</label><input id="ef_'+id+'" type="file" accept="image/*"><button class="save" id="es_'+id+'">Сохранить</button><button class="cancel" id="ex_'+id+'">Отмена</button><p id="em_'+id+'" class="muted"></p>';
+ var box=document.createElement("div");box.className="editbox";box.innerHTML='<input id="en_'+id+'" value="'+escapeHtml(p.name)+'" placeholder="Название"><div class="row"><input id="ep_'+id+'" type="number" min="0" value="'+Number(p.price||0)+'" placeholder="Цена"><input id="eo_'+id+'" type="number" min="0" value="'+Number(p.old_price||0)+'" placeholder="Старая цена"></div><select id="ec_'+id+'"><option>Акции</option><option>Букеты</option><option>Сумочки</option><option>Корзины</option><option>Пакеты</option><option>Шары</option><option>Свадебные аксессуары</option><option>Букеты из продуктов питания</option></select><label class="muted">Новое фото (необязательно)</label><input id="ef_'+id+'" type="file" accept="image/*"><button class="save" id="es_'+id+'">Сохранить</button><button class="cancel" id="ex_'+id+'">Отмена</button><p id="em_'+id+'" class="muted"></p>';
  var item=document.querySelector('[data-edit="'+id+'"]').parentElement;item.appendChild(box);$("ec_"+id).value=p.category||"Букеты";function syncEditPromo(){var cat=$("ec_"+id),old=$("eo_"+id);old.style.display=cat.value==="Акции"?"block":"none";if(cat.value==="Акции"&&!Number(old.value))old.value=Number($("ep_"+id).value)||"";if(cat.value!=="Акции")old.value=""}$("ec_"+id).onchange=syncEditPromo;syncEditPromo();$("es_"+id).onclick=async function(){var m=$("em_"+id);m.textContent="Сохраняем...";try{var patch={name:$("en_"+id).value.trim(),price:Number($("ep_"+id).value),old_price:Number($("eo_"+id).value)||null,category:$("ec_"+id).value,description:$("ed_"+id).value.trim()||null};var file=$("ef_"+id).files[0];if(file){m.textContent="Загружаю новое фото...";var up=await uploadProductImage(file);patch.image_path=up.path;patch.image_url=up.url}await request("/rest/v1/products?id=eq."+encodeURIComponent(id),"PATCH",patch);await loadProducts()}catch(e){m.textContent="Ошибка: "+e.message}};$("ex_"+id).onclick=function(){box.remove()};
 }
 async function deleteProduct(id){
