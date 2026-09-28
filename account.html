@@ -28,7 +28,7 @@ main{padding:48px 0 80px}.hero h1{font:400 48px Georgia,serif;margin:0 0 8px}.he
 </div>
 <div id="registerForm" class="form" style="display:none">
 <label>Ваше имя</label><input id="regName" autocomplete="name" placeholder="Имя">
-<label>Телефон</label><div class="phone-field"><span>+7</span><input id="regPhone" type="tel" inputmode="numeric" autocomplete="tel" maxlength="10" placeholder="900 000-00-00"></div>
+<label>Телефон</label><div class="phone-field"><span>+7</span><input id="regPhone" type="tel" inputmode="numeric" autocomplete="tel" maxlength="10" pattern="[0-9]{10}" placeholder="9126265646"></div>
 <label>Пароль</label><input id="regPassword" type="password" autocomplete="new-password" placeholder="Минимум 6 символов">
 <button class="btn dark" id="registerBtn">Создать аккаунт</button>
 <p class="muted">Регистрация по номеру телефона.</p><p id="registerMsg"></p>
@@ -60,25 +60,6 @@ $('registerTab').onclick=()=>showTab(true);
 function phoneDigits(value){
   return String(value||'').replace(/[^0-9]/g,'').replace(/^7/,'').replace(/^8/,'').slice(0,10);
 }
-function formatPhoneDigits(value){
-  const d=phoneDigits(value);
-  let v='';
-  if(d.length)v=d.slice(0,3);
-  if(d.length>3)v+=' '+d.slice(3,6);
-  if(d.length>6)v+='-'+d.slice(6,8);
-  if(d.length>8)v+='-'+d.slice(8,10);
-  return v;
-}
-function setupRuPhone(id){
-  const input=$(id);
-  if(!input)return;
-  input.addEventListener('input',()=>{
-    const digits=phoneDigits(input.value);
-    input.value=formatPhoneDigits(digits);
-  });
-}
-setupRuPhone('regPhone');
-setupRuPhone('loginPhone');
 async function register(){try{const name=$('regName').value.trim(),rawPhone=$('regPhone').value.trim(),digits=phoneDigits(rawPhone),phone=digits.length===10?'+7'+digits:'',password=$('regPassword').value;if(!name||!phone||password.length<6){$('registerMsg').className='error';$('registerMsg').textContent='Укажите имя, номер телефона и пароль минимум из 6 символов.';return}$('registerBtn').disabled=true;$('registerMsg').className='muted';$('registerMsg').textContent='Создаём аккаунт…';const r=await db.auth.signUp({phone,password,options:{data:{full_name:name,phone}}});$('registerBtn').disabled=false;if(r.error){$('registerMsg').className='error';const m=String(r.error.message||'').toLowerCase();$('registerMsg').textContent=(m.includes('already registered')||m.includes('already exists')||m.includes('user already registered'))?'Этот номер уже зарегистрирован. Войдите в свой аккаунт.':(m.includes('phone provider')||m.includes('phone signups')||m.includes('phone is disabled'))?'Регистрация по номеру телефона сейчас недоступна. Проверьте, что провайдер Phone включён в Supabase Auth.':'Не удалось создать аккаунт. Проверьте данные и попробуйте ещё раз.';return}if(r.data.session){$('registerMsg').className='success';$('registerMsg').textContent='Аккаунт создан.';await loadAccount();return}$('registerMsg').className='error';$('registerMsg').textContent='Регистрация не завершилась. Проверьте настройки телефона и попробуйте ещё раз.'}catch(e){$('registerBtn').disabled=false;$('registerMsg').className='error';$('registerMsg').textContent='Не удалось создать аккаунт. Попробуйте ещё раз.';console.error(e)}}
 $('registerBtn').onclick=register;
 async function login(){const digits=phoneDigits($('loginPhone').value),phone=digits.length===10?'+7'+digits:'',password=$('loginPassword').value;$('loginBtn').disabled=true;$('loginMsg').className='muted';$('loginMsg').textContent='Входим…';const r=await db.auth.signInWithPassword({phone,password});$('loginBtn').disabled=false;if(r.error){$('loginMsg').className='error';const m=String(r.error.message||'').toLowerCase();$('loginMsg').textContent=m.includes('invalid login credentials')?'Неверный номер телефона или пароль.':m.includes('phone provider')?'Вход по номеру телефона сейчас недоступен. Проверьте настройки Phone в Supabase Auth.':'Не удалось войти. Проверьте номер телефона и пароль.';return}await loadAccount()}
