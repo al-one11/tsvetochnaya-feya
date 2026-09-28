@@ -9,7 +9,7 @@
 :root{--bg:#fff1f7;--paper:#fff;--ink:#351326;--muted:#79586a;--line:#f4bfd7;--dark:#8b1855;--accent:#ff2f7d;--soft:#ffd7eb;--gold:#ffb800}
 *{box-sizing:border-box}html,body{width:100%;max-width:100%;overflow-x:hidden}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(135deg,#fff1f7 0%,#fff9ef 45%,#f4edff 100%);color:var(--ink);font-family:Arial,sans-serif}body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.32;background-image:radial-gradient(#f4a6c7 .7px,transparent .7px);background-size:9px 9px}a{text-decoration:none;color:inherit}button,input{font:inherit}.wrap{width:min(980px,calc(100% - 30px));margin:auto}
 header{position:sticky;top:0;z-index:20;background:linear-gradient(90deg,#fff0f7ee,#fff8e8ee,#f3ecffff);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.nav{min-height:72px;padding:0 6px;display:flex;align-items:center;gap:5px}.brand{margin-right:auto;min-width:0;overflow:hidden;white-space:nowrap;font:700 20px Georgia,serif;letter-spacing:.01em;color:#8b1855}.brand small{display:block;font:700 18px Arial,sans-serif;letter-spacing:.08em;color:var(--muted);margin-top:3px}.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:14px;padding:12px 18px;font-size:13px;font-weight:700;cursor:pointer}.dark{background:linear-gradient(90deg,#ff2f7d,#ff6338);color:#fff;box-shadow:0 8px 20px #ff2f7d33}.light{background:#fff;border:1px solid var(--line)}
-main{padding:48px 0 80px}.hero h1{font:400 48px Georgia,serif;margin:0 0 8px}.hero p{color:var(--muted);margin:0 0 28px;line-height:1.6}.card{background:linear-gradient(180deg,#fff 0%,#fff8fc 100%);border:2px solid #f6c3da;border-radius:24px;padding:24px;box-shadow:0 12px 35px #6e514612;margin-bottom:18px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.stat{background:var(--soft);border-radius:18px;padding:20px}.stat span{display:block;color:var(--muted);font-size:12px}.stat b{display:block;font:700 31px Georgia,serif;margin-top:5px}.form{max-width:520px}.form label{font-size:12px;color:var(--muted)}.form input{width:100%;padding:13px;border:1px solid var(--line);border-radius:12px;margin:5px 0 12px;background:#fff;outline:0}.form input:focus{border-color:#ff7eaa;box-shadow:0 0 0 3px #ff2f7d18}.form .btn{width:100%;margin-top:5px}.switch{display:flex;gap:8px;margin-bottom:20px}.switch button{flex:1}.switch .active{background:linear-gradient(90deg,#ff2f7d,#ff6338);color:#fff;border:0}.muted{color:var(--muted);font-size:13px;line-height:1.5}.error{color:#a43f4a;font-size:13px}.success{color:#42704d;font-size:13px}.row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 0;border-bottom:1px solid var(--line)}.row:last-child{border-bottom:0}.row b{font-size:14px}.row span{display:block;color:var(--muted);font-size:12px;margin-top:4px}.badge{padding:6px 9px;border-radius:999px;background:var(--soft);font-size:11px}.hidden{display:none!important}
+main{padding:48px 0 80px}.hero h1{font:400 48px Georgia,serif;margin:0 0 8px}.hero p{color:var(--muted);margin:0 0 28px;line-height:1.6}.card{background:linear-gradient(180deg,#fff 0%,#fff8fc 100%);border:2px solid #f6c3da;border-radius:24px;padding:24px;box-shadow:0 12px 35px #6e514612;margin-bottom:18px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.stat{background:var(--soft);border-radius:18px;padding:20px}.stat span{display:block;color:var(--muted);font-size:12px}.stat b{display:block;font:700 31px Georgia,serif;margin-top:5px}.form{max-width:520px}.form label{font-size:12px;color:var(--muted)}.form input{width:100%;padding:13px;border:1px solid var(--line);border-radius:12px;margin:5px 0 12px;background:#fff;outline:0}.form input:focus{border-color:#ff7eaa;box-shadow:0 0 0 3px #ff2f7d18}.phone-field{display:flex;align-items:center;width:100%;border:1px solid var(--line);border-radius:12px;margin:5px 0 12px;background:#fff;overflow:hidden}.phone-field:focus-within{border-color:#ff7eaa;box-shadow:0 0 0 3px #ff2f7d18}.phone-field>span{padding-left:13px;font-weight:700;color:var(--ink);white-space:nowrap}.phone-field input{border:0!important;box-shadow:none!important;margin:0!important;padding-left:7px!important}.form .btn{width:100%;margin-top:5px}.switch{display:flex;gap:8px;margin-bottom:20px}.switch button{flex:1}.switch .active{background:linear-gradient(90deg,#ff2f7d,#ff6338);color:#fff;border:0}.muted{color:var(--muted);font-size:13px;line-height:1.5}.error{color:#a43f4a;font-size:13px}.success{color:#42704d;font-size:13px}.row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 0;border-bottom:1px solid var(--line)}.row:last-child{border-bottom:0}.row b{font-size:14px}.row span{display:block;color:var(--muted);font-size:12px;margin-top:4px}.badge{padding:6px 9px;border-radius:999px;background:var(--soft);font-size:11px}.hidden{display:none!important}
 @media(max-width:650px){.wrap{width:calc(100% - 20px)}.nav{min-height:62px;padding:0 4px;gap:4px}.brand{font-size:14px;letter-spacing:-.02em}.brand small{font-size:11px;letter-spacing:.03em}.nav .btn{padding:10px 11px;font-size:11px}.hero h1{font-size:39px}.grid{grid-template-columns:1fr}.card{padding:18px}}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -21,14 +21,14 @@ main{padding:48px 0 80px}.hero h1{font:400 48px Georgia,serif;margin:0 0 8px}.he
 <section id="authCard" class="card">
 <div class="switch"><button type="button" id="loginTab" class="btn active" onclick="showTab(false)">Войти</button><button type="button" id="registerTab" class="btn light" onclick="showTab(true)">Регистрация</button></div>
 <div id="loginForm" class="form">
-<label>Номер телефона</label><input id="loginPhone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="+7 900 000-00-00">
+<label>Номер телефона</label><div class="phone-field"><span>+7</span><input id="loginPhone" type="tel" inputmode="numeric" autocomplete="tel" maxlength="10" placeholder="900 000-00-00"></div>
 <label>Пароль</label><input id="loginPassword" type="password" autocomplete="current-password" placeholder="••••••••">
 <button class="btn dark" id="loginBtn">Войти</button>
 <p class="muted">Нет аккаунта? Нажмите «Регистрация».</p><p id="loginMsg"></p>
 </div>
 <div id="registerForm" class="form" style="display:none">
 <label>Ваше имя</label><input id="regName" autocomplete="name" placeholder="Имя">
-<label>Телефон</label><input id="regPhone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="+7 900 000-00-00">
+<label>Телефон</label><div class="phone-field"><span>+7</span><input id="regPhone" type="tel" inputmode="numeric" autocomplete="tel" maxlength="10" placeholder="900 000-00-00"></div>
 <label>Пароль</label><input id="regPassword" type="password" autocomplete="new-password" placeholder="Минимум 6 символов">
 <button class="btn dark" id="registerBtn">Создать аккаунт</button>
 <p class="muted">Регистрация по номеру телефона.</p><p id="registerMsg"></p>
@@ -57,13 +57,13 @@ function showTab(register){
 }
 $('loginTab').onclick=()=>showTab(false);
 $('registerTab').onclick=()=>showTab(true);
-function formatRuPhone(value){
-  let d=String(value||'').replace(/\D/g,'');
-  if(d.startsWith('8'))d=d.slice(1);
-  else if(d.startsWith('7'))d=d.slice(1);
-  d=d.slice(0,10);
-  let v='+7';
-  if(d.length)v+=' '+d.slice(0,3);
+function phoneDigits(value){
+  return String(value||'').replace(/\\D/g,'').replace(/^7/,'').replace(/^8/,'').slice(0,10);
+}
+function formatPhoneDigits(value){
+  const d=phoneDigits(value);
+  let v='';
+  if(d.length)v=d.slice(0,3);
   if(d.length>3)v+=' '+d.slice(3,6);
   if(d.length>6)v+='-'+d.slice(6,8);
   if(d.length>8)v+='-'+d.slice(8,10);
@@ -72,33 +72,16 @@ function formatRuPhone(value){
 function setupRuPhone(id){
   const input=$(id);
   if(!input)return;
-  input.addEventListener('focus',()=>{
-    if(!input.value || input.value.trim()===''){
-      input.value='+7 ';
-      requestAnimationFrame(()=>{input.selectionStart=input.selectionEnd=input.value.length});
-    }
-  });
   input.addEventListener('input',()=>{
-    const oldValue=input.value;
-    const digits=oldValue.replace(/\D/g,'');
-    if(!digits || digits==='7'){
-      input.value='+7 ';
-    }else{
-      input.value=formatRuPhone(oldValue);
-    }
-    requestAnimationFrame(()=>{input.selectionStart=input.selectionEnd=input.value.length});
-  });
-  input.addEventListener('blur',()=>{
-    if(input.value.trim()==='+7' || input.value.trim()==='+7 '){
-      input.value='';
-    }
+    const digits=phoneDigits(input.value);
+    input.value=formatPhoneDigits(digits);
   });
 }
 setupRuPhone('regPhone');
 setupRuPhone('loginPhone');
-async function register(){try{const name=$('regName').value.trim(),rawPhone=$('regPhone').value.trim(),digits=rawPhone.replace(/\D/g,''),phone=digits.length===11&&digits.startsWith('7')?'+'+digits:digits.length===10?'+7'+digits:'',password=$('regPassword').value;if(!name||!phone||password.length<6){$('registerMsg').className='error';$('registerMsg').textContent='Укажите имя, номер телефона и пароль минимум из 6 символов.';return}$('registerBtn').disabled=true;$('registerMsg').className='muted';$('registerMsg').textContent='Создаём аккаунт…';const r=await db.auth.signUp({phone,password,options:{data:{full_name:name,phone}}});$('registerBtn').disabled=false;if(r.error){$('registerMsg').className='error';const m=String(r.error.message||'').toLowerCase();$('registerMsg').textContent=(m.includes('already registered')||m.includes('already exists')||m.includes('user already registered'))?'Этот номер уже зарегистрирован. Войдите в свой аккаунт.':(m.includes('phone provider')||m.includes('phone signups')||m.includes('phone is disabled'))?'Регистрация по номеру телефона сейчас недоступна. Проверьте, что провайдер Phone включён в Supabase Auth.':'Не удалось создать аккаунт. Проверьте данные и попробуйте ещё раз.';return}if(r.data.session){$('registerMsg').className='success';$('registerMsg').textContent='Аккаунт создан.';await loadAccount();return}$('registerMsg').className='error';$('registerMsg').textContent='Регистрация не завершилась. Проверьте настройки телефона и попробуйте ещё раз.'}catch(e){$('registerBtn').disabled=false;$('registerMsg').className='error';$('registerMsg').textContent='Не удалось создать аккаунт. Попробуйте ещё раз.';console.error(e)}}
+async function register(){try{const name=$('regName').value.trim(),rawPhone=$('regPhone').value.trim(),digits=phoneDigits(rawPhone),phone=digits.length===10?'+7'+digits:'',password=$('regPassword').value;if(!name||!phone||password.length<6){$('registerMsg').className='error';$('registerMsg').textContent='Укажите имя, номер телефона и пароль минимум из 6 символов.';return}$('registerBtn').disabled=true;$('registerMsg').className='muted';$('registerMsg').textContent='Создаём аккаунт…';const r=await db.auth.signUp({phone,password,options:{data:{full_name:name,phone}}});$('registerBtn').disabled=false;if(r.error){$('registerMsg').className='error';const m=String(r.error.message||'').toLowerCase();$('registerMsg').textContent=(m.includes('already registered')||m.includes('already exists')||m.includes('user already registered'))?'Этот номер уже зарегистрирован. Войдите в свой аккаунт.':(m.includes('phone provider')||m.includes('phone signups')||m.includes('phone is disabled'))?'Регистрация по номеру телефона сейчас недоступна. Проверьте, что провайдер Phone включён в Supabase Auth.':'Не удалось создать аккаунт. Проверьте данные и попробуйте ещё раз.';return}if(r.data.session){$('registerMsg').className='success';$('registerMsg').textContent='Аккаунт создан.';await loadAccount();return}$('registerMsg').className='error';$('registerMsg').textContent='Регистрация не завершилась. Проверьте настройки телефона и попробуйте ещё раз.'}catch(e){$('registerBtn').disabled=false;$('registerMsg').className='error';$('registerMsg').textContent='Не удалось создать аккаунт. Попробуйте ещё раз.';console.error(e)}}
 $('registerBtn').onclick=register;
-async function login(){const phoneDigits=$('loginPhone').value.replace(/\D/g,''),phone=phoneDigits.length===11&&phoneDigits.startsWith('7')?'+'+phoneDigits:phoneDigits.length===10?'+7'+phoneDigits:$('loginPhone').value.trim(),password=$('loginPassword').value;$('loginBtn').disabled=true;$('loginMsg').className='muted';$('loginMsg').textContent='Входим…';const r=await db.auth.signInWithPassword({phone,password});$('loginBtn').disabled=false;if(r.error){$('loginMsg').className='error';const m=String(r.error.message||'').toLowerCase();$('loginMsg').textContent=m.includes('invalid login credentials')?'Неверный номер телефона или пароль.':m.includes('phone provider')?'Вход по номеру телефона сейчас недоступен. Проверьте настройки Phone в Supabase Auth.':'Не удалось войти. Проверьте номер телефона и пароль.';return}await loadAccount()}
+async function login(){const digits=phoneDigits($('loginPhone').value),phone=digits.length===10?'+7'+digits:'',password=$('loginPassword').value;$('loginBtn').disabled=true;$('loginMsg').className='muted';$('loginMsg').textContent='Входим…';const r=await db.auth.signInWithPassword({phone,password});$('loginBtn').disabled=false;if(r.error){$('loginMsg').className='error';const m=String(r.error.message||'').toLowerCase();$('loginMsg').textContent=m.includes('invalid login credentials')?'Неверный номер телефона или пароль.':m.includes('phone provider')?'Вход по номеру телефона сейчас недоступен. Проверьте настройки Phone в Supabase Auth.':'Не удалось войти. Проверьте номер телефона и пароль.';return}await loadAccount()}
 $('loginBtn').onclick=login;
 async function loadAccount(){const {data:{session}}=await db.auth.getSession();if(!session){$('authCard').classList.remove('hidden');$('accountCard').classList.add('hidden');return}$('authCard').classList.add('hidden');$('accountCard').classList.remove('hidden');const p=await db.from('customer_profiles').select('full_name,phone,total_spent,registered_at').eq('user_id',session.user.id).single();if(p.data){$('profileName').value=p.data.full_name||'';$('profilePhone').value=p.data.phone||'';$('totalSpent').textContent=money(p.data.total_spent)}else{$('profileName').value=session.user.user_metadata?.full_name||'';$('profilePhone').value=session.user.user_metadata?.phone||''}const o=await db.from('orders').select('id,total,status,created_at').eq('user_id',session.user.id).order('created_at',{ascending:false});$('ordersList').innerHTML=o.data?.length?o.data.map(x=>'<div class="row"><div><b>Заказ #'+x.id.slice(0,8).toUpperCase()+'</b><span>'+new Date(x.created_at).toLocaleString('ru-RU')+'</span></div><div><strong>'+money(x.total)+'</strong><div class="badge">'+esc({new:'Новый',confirmed:'Подтверждён',completed:'Выполнен',cancelled:'Отменён'}[x.status]||x.status)+'</div></div></div>').join(''):'<p class="muted">Заказов пока нет.</p>'
 $('saveProfileBtn').onclick=async()=>{const {data:{session}}=await db.auth.getSession();if(!session)return;const r=await db.from('customer_profiles').update({full_name:$('profileName').value.trim(),phone:$('profilePhone').value.trim(),updated_at:new Date().toISOString()}).eq('user_id',session.user.id);$('profileMsg').className=r.error?'error':'success';$('profileMsg').textContent=r.error?r.error.message:'Данные сохранены.'};
