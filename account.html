@@ -58,7 +58,7 @@ function showTab(register){
 $('loginTab').onclick=()=>showTab(false);
 $('registerTab').onclick=()=>showTab(true);
 function phoneDigits(value){
-  return String(value||'').replace(/\\D/g,'').replace(/^7/,'').replace(/^8/,'').slice(0,10);
+  return String(value||'').replace(/[^0-9]/g,'').replace(/^7/,'').replace(/^8/,'').slice(0,10);
 }
 function formatPhoneDigits(value){
   const d=phoneDigits(value);
