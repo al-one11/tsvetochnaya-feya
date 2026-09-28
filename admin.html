@@ -84,12 +84,12 @@ async function moveProduct(id,dir){
  if(index<0)return;
  var targetIndex=index+dir;
  if(targetIndex<0||targetIndex>=visible.length)return;
- var p=visible[index],target=visible[targetIndex];
- var a=Number(p.sort_order||0),b=Number(target.sort_order||0);
+ var moved=visible.splice(index,1)[0];
+ visible.splice(targetIndex,0,moved);
  try{
-  var patch1={sort_order:b},patch2={sort_order:a};
-  await request("/rest/v1/products?id=eq."+encodeURIComponent(p.id),"PATCH",patch1);
-  await request("/rest/v1/products?id=eq."+encodeURIComponent(target.id),"PATCH",patch2);
+  for(var i=0;i<visible.length;i++){
+   await request("/rest/v1/products?id=eq."+encodeURIComponent(visible[i].id),"PATCH",{sort_order:i});
+  }
   await loadProducts();
  }catch(e){alert("Не удалось изменить порядок: "+e.message)}
 }
